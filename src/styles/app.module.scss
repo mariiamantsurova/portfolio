@@ -1,224 +1,355 @@
-@import "./variables";
+@import './variables';
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-	background: linear-gradient(221.76deg, #060606 2.24%, #060606 2.24%, #1f1f1f 38.3%, #292929 51.47%);
-	overflow-x: hidden;
-	::-webkit-scrollbar {
-		width: 10px;
-	}
+  background: linear-gradient(
+    221.76deg,
+    #060606 2.24%,
+    #060606 2.24%,
+    #1f1f1f 38.3%,
+    #292929 51.47%
+  );
+  overflow-x: hidden;
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
 
-	/* Track */
-	::-webkit-scrollbar-track {
-		background: $secondary-grey;
-		border-radius: 5px;
-	}
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $secondary-grey;
+    border-radius: 5px;
+  }
 
-	/* Handle */
-	::-webkit-scrollbar-thumb {
-		background: $primary-purple;
-		border-radius: 5px;
-	}
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $primary-purple;
+    border-radius: 5px;
+  }
 
-	/* Handle on hover */
-	::-webkit-scrollbar-thumb:hover {
-		background: #555;
-	}
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 }
 
 @font-face {
-	font-family: Main;
-	src: url(../../public/fonts/Orionprimedemo-1GrV4.ttf);
+  font-family: Main;
+  src: url(../../public/fonts/Orionprimedemo-1GrV4.ttf);
 }
 @font-face {
-	font-family: Grafitti;
-	src: url(../../public/fonts/BastradVol.ttf);
+  font-family: Grafitti;
+  src: url(../../public/fonts/BastradVol.ttf);
 }
 
 .nav-bar {
-	display: flex;
-	justify-content: space-between;
-	.links {
-		display: flex;
-		justify-content: space-between;
-		width: 30%;
-		margin: 2rem;
-		button {
-			border: none;
-			color: white;
-			background: none;
-			cursor: pointer;
-			font-size: 1rem;
-			font-family: "Red Hat Mono", monospace;
-		}
-	}
-	.logo-wrapper {
-		img {
-			width: 3rem;
-			margin: 2rem;
-		}
-	}
+  display: flex;
+  justify-content: space-between;
+  .links {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    margin: 2rem;
+    button {
+      border: none;
+      color: white;
+      background: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-family: 'Red Hat Mono', monospace;
+    }
+  }
+  .logo-wrapper {
+    img {
+      width: 3rem;
+      margin: 2rem;
+    }
+  }
 }
 
-.main {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-left: 2rem;
-	width: 20%;
-	h2 {
-		color: $primary-green;
-		font-family: Grafitti;
-		font-weight: 100;
-		font-size: 10rem;
-	}
-	h1 {
-		color: white;
-		font-family: Main;
-		font-weight: 100;
-		font-size: 2rem;
-	}
-	h3 {
-		margin-top: 1rem;
-		color: white;
-		font-family: "Red Hat Mono", monospace;
-		font-weight: 100;
-	}
-	.download-cv-btn {
-		align-self: center;
-		position: relative;
-		margin-top: 6rem;
-		height: 10rem;
-		width: 10rem;
-		border: none;
-		background: none;
-		cursor: pointer;
-		.cv-icon {
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 10rem;
-			animation: rotation 5s infinite linear;
-		}
-		.arrow-icon {
-			position: relative;
-			top: 0;
-			right: 0;
-			width: 5rem;
-			transition: scale 0.2s ease-in-out;
-		}
-	}
-	.download-cv-btn:hover .arrow-icon {
-		scale: 1.1;
-	}
+.section-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 2rem;
+  width: 20%;
+  h2 {
+    color: $primary-green;
+    font-family: Grafitti;
+    font-weight: 100;
+    font-size: 10rem;
+  }
+  h1 {
+    color: white;
+    font-family: Main;
+    font-weight: 100;
+    font-size: 2rem;
+  }
+  h3 {
+    margin-top: 1rem;
+    color: white;
+    font-family: 'Red Hat Mono', monospace;
+    font-weight: 100;
+  }
+  .download-cv-btn {
+    align-self: center;
+    position: relative;
+    margin-top: 6rem;
+    height: 10rem;
+    width: 10rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    .cv-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 10rem;
+      animation: rotation 5s infinite linear;
+    }
+    .arrow-icon {
+      position: relative;
+      top: 0;
+      right: 0;
+      width: 5rem;
+      transition: scale 0.2s ease-in-out;
+    }
+  }
+  .download-cv-btn:hover .arrow-icon {
+    scale: 1.1;
+  }
 }
 .section-aboutme {
-	position: relative;
-	background: $background-grey;
-	z-index: 3;
-	.aboutme-line {
-		display: flex;
-		align-items: center;
-		height: 3rem;
-		.text-wrapper-aboutme {
-			min-width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: space-around;
-			animation: scroll-left 10s infinite linear;
-			h2 {
-				white-space: nowrap;
-				font-size: 1.2rem;
-				font-family: Main;
-				font-weight: 100;
-			}
-		}
-	}
-	.purple {
-		z-index: 6;
-		background: $primary-purple;
-		color: white;
-	}
-	.grey {
-		position: relative;
-		z-index: -3;
-		transform: rotate(-2deg);
-		background: white;
-		color: $secondary-grey;
-	}
-	.container-aboutme {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		position: absolute;
-		right: 0;
-		width: 50%;
-		height: 100%;
-		.about-title {
-			position: relative;
-			h2 {
-				top: -80%;
-				right: 20%;
-				position: absolute;
-				z-index: 5;
-				font-size: 4rem;
-				font-family: Grafitti;
-				color: $primary-purple;
-			}
-			h3 {
-				position: relative;
-				z-index: 3;
-				text-align: center;
-				font-size: 2rem;
-				font-family: Main;
-				font-weight: 100;
-				color: $secondary-grey;
-			}
-		}
-		.wrap-text-container {
-			width: 50%;
-			height: 50%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.78), 4px 4px 10px rgba(0, 0, 0, 0.25);
-			border-radius: 79px;
-			.container-overflow {
-				width: 80%;
-				height: 80%;
-				overflow-y: scroll;
+  position: relative;
+  background: $background-grey;
+  z-index: 3;
+  .aboutme-line {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    .text-wrapper-aboutme {
+      min-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      animation: scroll-left 10s infinite linear;
+      h2 {
+        white-space: nowrap;
+        font-size: 1.2rem;
+        font-family: Main;
+        font-weight: 100;
+      }
+    }
+  }
+  .purple {
+    z-index: 6;
+    background: $primary-purple;
+    color: white;
+  }
+  .grey {
+    position: relative;
+    z-index: -3;
+    transform: rotate(-2deg);
+    background: white;
+    color: $secondary-grey;
+  }
+  .container-aboutme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    .about-title {
+      position: relative;
+      margin: 0.5rem;
+      h2 {
+        top: -80%;
+        right: 20%;
+        position: absolute;
+        z-index: 5;
+        font-size: 4rem;
+        font-family: Grafitti;
+        font-weight: 100;
+        color: $primary-purple;
+      }
+      h3 {
+        position: relative;
+        z-index: 3;
+        text-align: center;
+        font-size: 2rem;
+        font-family: Main;
+        font-weight: 100;
+        color: $secondary-grey;
+      }
+    }
+    .wrap-text-container {
+      width: 50%;
+      height: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.78),
+        4px 4px 10px rgba(0, 0, 0, 0.25);
+      border-radius: 50px;
+      .container-overflow {
+        width: 80%;
+        height: 80%;
+        overflow-y: scroll;
+        overflow-x: hidden;
 
-				p {
-					padding: 1rem;
-					background: linear-gradient(180.16deg, #000000 80.84%, rgba(0, 0, 0, 0) 94.83%);
-					background-clip: text;
-					-webkit-background-clip: text;
-					color: transparent;
-					line-height: 214.8%;
-					letter-spacing: 0.025em;
-					font-family: "Red Hat Mono", monospace;
-				}
-			}
-		}
-	}
+        p {
+          padding: 1rem;
+          background: linear-gradient(
+            180.16deg,
+            #000000 80.84%,
+            rgba(0, 0, 0, 0) 94.83%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+          line-height: 214.8%;
+          letter-spacing: 0.025em;
+          font-family: 'Red Hat Mono', monospace;
+        }
+      }
+    }
+  }
+}
+.section-skills {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: $background-grey;
+  .skills-title {
+    position: relative;
+    h1 {
+      font-family: Main;
+      font-weight: 100;
+    }
+    h2 {
+      position: absolute;
+      top: 0;
+      right: 30%;
+      font-size: 3rem;
+      font-family: Grafitti;
+      font-weight: 100;
+      color: $primary-aqua;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 60%;
+    margin-top: 3rem;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      min-width: 5rem;
+      height: 4rem;
+      padding: 0.8rem 0.4rem;
+      border-radius: 10px;
+      box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.51),
+        inset 4px 4px 10px rgba(144, 144, 144, 0.22),
+        4px 4px 20px rgba(177, 174, 174, 0.25), -4px -4px 5px #ffffff;
+      font-family: 'Red Hat Mono', monospace;
+      img {
+        width: 2rem;
+        margin-right: 1rem;
+      }
+      .mongodb-icon {
+        width: 1.5rem;
+      }
+    }
+    .purple-icon {
+      background: $primary-purple;
+      color: white;
+      box-shadow: none;
+    }
+    .green-icon {
+      background: $primary-green;
+      box-shadow: none;
+    }
+    .aqua-icon {
+      background: $primary-aqua;
+      box-shadow: none;
+    }
+  }
+  .language-title {
+    position: relative;
+    margin-top: 3rem;
+    h1 {
+      font-family: Main;
+      color: $secondary-grey;
+      font-weight: 100;
+    }
+    h2 {
+      position: absolute;
+      top: 0;
+      right: -15%;
+      font-family: Grafitti;
+      font-weight: 100;
+      font-size: 3rem;
+      color: $primary-purple;
+    }
+  }
+  .charts {
+    background: $background-grey;
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+    .flex-wrapper {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 80%;
+      .chart-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        height: 100%;
+        h1 {
+          position: absolute;
+          font-family: Main;
+          font-weight: 100;
+          color: $secondary-grey;
+        }
+        .skill-level {
+          position: absolute;
+        }
+      }
+      h2 {
+        font-size: 1.2rem;
+        font-family: 'Red Hat Mono', monospace;
+      }
+    }
+  }
 }
 @keyframes rotation {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(359deg);
-	}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 @keyframes scroll-left {
-	from {
-		transform: translateX(0);
-	}
-	to {
-		transform: translateX(-50%);
-	}
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
