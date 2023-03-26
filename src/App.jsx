@@ -1,37 +1,44 @@
 //react
-import React from 'react'
-import { useRef } from 'react'
+import React, { Suspense } from 'react'
+import { useRef, useState } from 'react'
 //Icons
-import logoIcon from '../public/icons/logo.svg'
-import CVIcon from '../public/icons/CV.svg'
-import ArrowIcon from '../public/icons/arrow-down.svg'
-import htmlIcon from '../public/icons/html.svg'
-import graphQLIcon from '../public/icons/graphQL.svg'
-import jsIcon from '../public/icons/javascript.svg'
-import cssIcon from '../public/icons/css.svg'
-import gitIcon from '../public/icons/git.svg'
-import mongodbIcon from '../public/icons/mongodb.svg'
-import tsIcon from '../public/icons/typescript.svg'
-import reduxIcon from '../public/icons/redux.svg'
-import reactIcon from '../public/icons/react.svg'
-import mySqlIcon from '../public/icons/mysql.svg'
-import nextJsIcon from '../public/icons/nextjs.svg'
-import doughnutIcon from '../public/icons/doughnut.svg'
-import russianIcon from '../public/icons/russian.svg'
-import hebrewIcon from '../public/icons/hebrew.svg'
-import englishIcon from '../public/icons/english.svg'
-//Canvas
-import Canvas from './Canvas'
+import logoIcon from '/icons/logo.svg'
+import CVIcon from '/icons/CV.svg'
+import ArrowIcon from '/icons/arrow-down.svg'
+import htmlIcon from '/icons/html.svg'
+import graphQLIcon from '/icons/graphql.svg'
+import jsIcon from '/icons/javascript.svg'
+import cssIcon from '/icons/css.svg'
+import gitIcon from '/icons/git.svg'
+import mongodbIcon from '/icons/mongodb.svg'
+import tsIcon from '/icons/typescript.svg'
+import reduxIcon from '/icons/redux.svg'
+import reactIcon from '/icons/react.svg'
+import mySqlIcon from '/icons/mysql.svg'
+import nextJsIcon from '/icons/nextjs.svg'
+import doughnutIcon from '/icons/doughnut.svg'
+import russianIcon from '/icons/russian.svg'
+import hebrewIcon from '/icons/hebrew.svg'
+import englishIcon from '/icons/english.svg'
+import pauseBtn from '/icons/pausecircle.svg'
+import playBtn from '/icons/playcircle.svg'
+//pdf CV
+import CV from '/PDF/cv.pdf'
+
+//three fiber
+import { Canvas, useThree } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
 //Styles
 import Styles from './styles/app.module.scss'
 //Components
 import Marguee from './Components/Margue'
-import MapView from './Components/Map'
+import Cat from './Components/Cat'
 
-function App() {
+export default function App() {
   const aboutRef = useRef(null)
   const skillsRef = useRef(null)
   const contactsRef = useRef(null)
+  const [paused, setPaused] = useState(false)
   const scrollToRef = (target) => {
     if (target.current !== null) {
       console.log(target?.current)
@@ -41,8 +48,30 @@ function App() {
       behavior: 'smooth',
     })
   }
+  const togglePause = () => {
+    setPaused(!paused)
+  }
   return (
     <div className="App">
+      <Canvas
+        orthographic
+        camera={{ zoom: 1, position: [0, 150, 500] }}
+        style={{ aspectRatio: '1/1' }}
+        className={Styles['canvas']}
+      >
+        <Suspense fallback={null}>
+          <ambientLight position={(0, 10, 0)} />
+          <spotLight
+            intensity={0.9}
+            angle={0.5}
+            penumbra={0}
+            position={[5, 5, 0]}
+            castShadow
+          />
+          <Cat rotation={[-25, 160, 0]} paused={paused} />
+          <OrbitControls enableZoom={false} />
+        </Suspense>
+      </Canvas>
       <nav className={Styles['nav-bar']}>
         <div className={Styles['links']}>
           <button
@@ -67,34 +96,50 @@ function App() {
             /contacts
           </button>
         </div>
-        <div className={Styles['logo-wrapper']}>
-          <img src={logoIcon} alt="" />
+        <div className={Styles['btns-wrapper']}>
+          <button
+            onClick={() => {
+              togglePause()
+            }}
+          >
+            {paused ? (
+              <img src={playBtn} alt="play animation button" />
+            ) : (
+              <img src={pauseBtn} alt="pause animaion button" />
+            )}
+          </button>
+          <div className={Styles['logo-wrapper']}>
+            <img src={logoIcon} alt="logo icon" />
+          </div>
         </div>
       </nav>
       <section className={Styles['section-main']}>
-        <h2>Hello,</h2>
-        <h1>
-          I’m Maria <br />
-          Mantsurova
-        </h1>
-        <h3>{'<Full Stack Developer />'}</h3>
-        <button className={Styles['download-cv-btn']}>
-          <img
-            src={CVIcon}
-            alt="CV-download-icon"
-            className={Styles['cv-icon']}
-          />
-          <img
-            src={ArrowIcon}
-            alt="CV-download-icon"
-            className={Styles['arrow-icon']}
-          />
-        </button>
+        <main className={Styles['section-title']}>
+          <h2>Hello,</h2>
+          <h1>
+            I’m Maria <br />
+            Mantsurova
+          </h1>
+          <h3>{'<Full Stack Developer />'}</h3>
+          <a href={CV} download="MyCV" target="_blank">
+            <button className={Styles['download-cv-btn']}>
+              <img
+                src={CVIcon}
+                alt="CV-download-icon"
+                className={Styles['cv-icon']}
+              />
+              <img
+                src={ArrowIcon}
+                alt="CV-download-icon"
+                className={Styles['arrow-icon']}
+              />
+            </button>
+          </a>
+        </main>
       </section>
-      <Canvas />
       <section
         ref={aboutRef}
-        style={{ height: '100vh' }}
+        style={{ minHeight: '100vh' }}
         className={Styles['section-aboutme']}
       >
         <Marguee styles="purple" />
@@ -126,7 +171,7 @@ function App() {
       </section>
       <section
         ref={skillsRef}
-        style={{ height: '100vh' }}
+        style={{ minHeight: '100vh' }}
         className={Styles['section-skills']}
       >
         <div className={Styles['skills-title']}>
@@ -230,12 +275,8 @@ function App() {
       </section>
       <section
         ref={contactsRef}
-        style={{ height: '100vh', position: 'relative' }}
-      >
-        <MapView />
-      </section>
+        style={{ minHeight: '100vh', position: 'relative' }}
+      ></section>
     </div>
   )
 }
-
-export default App

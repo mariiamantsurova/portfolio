@@ -37,14 +37,18 @@ body {
 
 @font-face {
   font-family: Main;
-  src: url(../../public/fonts/Orionprimedemo-1GrV4.ttf);
+  src: url(/fonts/Orionprimedemo-1GrV4.ttf);
 }
 @font-face {
   font-family: Grafitti;
-  src: url(../../public/fonts/BastradVol.ttf);
+  src: url(/fonts/BastradVol.ttf);
 }
 
 .nav-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 10%;
   display: flex;
   justify-content: space-between;
   .links {
@@ -59,69 +63,101 @@ body {
       cursor: pointer;
       font-size: 1rem;
       font-family: 'Red Hat Mono', monospace;
+      transition: color 0.2s ease-in-out;
+      &:hover {
+        color: $primary-purple;
+      }
     }
   }
-  .logo-wrapper {
+  .btns-wrapper {
+    position: relative;
+    z-index: 99999999;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem;
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 1.2rem;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        scale: 1.1;
+      }
+    }
     img {
       width: 3rem;
-      margin: 2rem;
     }
   }
 }
 
 .section-main {
+  position: absolute;
+  top: 10%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 2rem;
-  width: 20%;
-  h2 {
-    color: $primary-green;
-    font-family: Grafitti;
-    font-weight: 100;
-    font-size: 10rem;
-  }
-  h1 {
-    color: white;
-    font-family: Main;
-    font-weight: 100;
-    font-size: 2rem;
-  }
-  h3 {
-    margin-top: 1rem;
-    color: white;
-    font-family: 'Red Hat Mono', monospace;
-    font-weight: 100;
-  }
-  .download-cv-btn {
-    align-self: center;
-    position: relative;
-    margin-top: 6rem;
-    height: 10rem;
-    width: 10rem;
-    border: none;
-    background: none;
-    cursor: pointer;
-    .cv-icon {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 10rem;
-      animation: rotation 5s infinite linear;
+  justify-content: space-between;
+  .section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 2rem;
+    width: 20%;
+    h2 {
+      color: $primary-green;
+      font-family: Grafitti;
+      font-weight: 100;
+      font-size: 10rem;
     }
-    .arrow-icon {
+    h1 {
+      color: white;
+      font-family: Main;
+      font-weight: 100;
+      font-size: 2rem;
+    }
+    h3 {
+      margin-top: 1rem;
+      color: white;
+      font-family: 'Red Hat Mono', monospace;
+      font-weight: 100;
+    }
+    .download-cv-btn {
+      align-self: center;
       position: relative;
-      top: 0;
-      right: 0;
-      width: 5rem;
-      transition: scale 0.2s ease-in-out;
+      margin-top: 6rem;
+      height: 10rem;
+      width: 10rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      .cv-icon {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 10rem;
+        transition: all 3s ease;
+      }
+      .arrow-icon {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 5rem;
+        transition: scale 0.2s ease-out;
+      }
     }
-  }
-  .download-cv-btn:hover .arrow-icon {
-    scale: 1.1;
+    .download-cv-btn:hover .arrow-icon {
+      scale: 1.1;
+    }
+    .download-cv-btn:hover .cv-icon {
+      transform: rotate(360deg);
+      transition: all 5s ease-out;
+    }
   }
 }
 .section-aboutme {
+  position: absolute;
   position: relative;
   background: $background-grey;
   z-index: 3;
@@ -162,13 +198,13 @@ body {
     justify-content: center;
     position: absolute;
     right: 0;
-    width: 50%;
+    width: 100%;
     height: 100%;
     .about-title {
       position: relative;
       margin: 0.5rem;
       h2 {
-        top: -80%;
+        top: -100%;
         right: 20%;
         position: absolute;
         z-index: 5;
@@ -337,19 +373,25 @@ body {
     }
   }
 }
+.canvas {
+  z-index: 99999;
+  top: 10%;
+  right: -40%;
+  max-width: 700px;
+  max-width: 700px;
+  canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 700px;
+    max-height: 700px;
+  }
+}
 @keyframes rotation {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(359deg);
-  }
-}
-@keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
   }
 }
