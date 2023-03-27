@@ -205,7 +205,7 @@ body {
       margin: 0.5rem;
       h2 {
         top: -100%;
-        right: 20%;
+        left: 0%;
         position: absolute;
         z-index: 5;
         font-size: 4rem;
@@ -270,7 +270,7 @@ body {
     h2 {
       position: absolute;
       top: 0;
-      right: 30%;
+      left: 0%;
       font-size: 3rem;
       font-family: Grafitti;
       font-weight: 100;
@@ -283,7 +283,7 @@ body {
     flex-wrap: wrap;
     gap: 1rem;
     max-width: 60%;
-    margin-top: 3rem;
+    margin: 3rem;
     li {
       display: flex;
       align-items: center;
@@ -304,73 +304,121 @@ body {
         width: 1.5rem;
       }
     }
-    .purple-icon {
-      background: $primary-purple;
-      color: white;
-      box-shadow: none;
-    }
-    .green-icon {
-      background: $primary-green;
-      box-shadow: none;
-    }
-    .aqua-icon {
-      background: $primary-aqua;
-      box-shadow: none;
-    }
   }
-  .language-title {
+}
+
+.section-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .title-contact {
     position: relative;
-    margin-top: 3rem;
+    margin-top: 2rem;
     h1 {
       font-family: Main;
-      color: $secondary-grey;
       font-weight: 100;
+      color: white;
     }
     h2 {
       position: absolute;
-      top: 0;
-      right: -15%;
+      z-index: 5;
+      top: 0%;
+      left: 0%;
+      font-size: 3rem;
       font-family: Grafitti;
       font-weight: 100;
-      font-size: 3rem;
       color: $primary-purple;
     }
   }
-  .charts {
-    background: $background-grey;
-    width: 100%;
-    height: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 2rem;
-    .flex-wrapper {
+  p {
+    margin: 3rem;
+    width: 30%;
+    color: white;
+    font-size: 0.8rem;
+    font-family: 'Red Hat Mono', monospace;
+  }
+
+  .form-contact {
+    .email-wrapper {
       display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 80%;
-      .chart-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 100%;
-        height: 100%;
-        h1 {
-          position: absolute;
-          font-family: Main;
-          font-weight: 100;
-          color: $secondary-grey;
-        }
-        .skill-level {
-          position: absolute;
-        }
-      }
-      h2 {
-        font-size: 1.2rem;
+      flex-direction: row;
+      gap: 0.4rem;
+      grid-column: 2 span;
+      h3 {
+        color: $primary-aqua;
+        font-size: 0.8rem;
         font-family: 'Red Hat Mono', monospace;
+        font-weight: 200;
       }
     }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+    margin: 1rem;
+    :nth-child(4),
+    :nth-child(5) {
+      grid-column: 2 span;
+    }
+    :nth-child(5) {
+      padding-bottom: 8rem;
+    }
+    input {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.47),
+        -4px -4px 20px rgba(255, 255, 255, 0.12);
+      background: $background-dark;
+      color: white;
+      font-family: 'Red Hat Mono', monospace;
+      font-size: 1.2rem;
+    }
+  }
+  button {
+    padding: 0.5rem 2rem;
+    border: none;
+    background: $background-dark;
+    color: white;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.47),
+      -4px -4px 20px rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+
+    font-size: 1.5rem;
+    font-family: 'Red Hat Mono', monospace;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: $primary-purple;
+    }
+  }
+}
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 20%;
+  padding-top: 2rem;
+  background: linear-gradient(
+    268.08deg,
+    rgba(217, 217, 217, 0.3) -3.98%,
+    rgba(217, 217, 217, 0) 128.3%
+  );
+  border-top: 3px solid rgba(255, 255, 255, 0.1);
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    img {
+      width: 3rem;
+    }
+  }
+  h3 {
+    color: white;
+    font-size: 0.8rem;
+    font-family: 'Red Hat Mono', monospace;
+    font-weight: 100;
+    text-align: center;
   }
 }
 .canvas {
@@ -394,4 +442,7 @@ body {
   to {
     transform: rotate(359deg);
   }
+}
+
+@media screen and (max-width: 1186) {
 }

@@ -16,12 +16,11 @@ import reduxIcon from '/icons/redux.svg'
 import reactIcon from '/icons/react.svg'
 import mySqlIcon from '/icons/mysql.svg'
 import nextJsIcon from '/icons/nextjs.svg'
-import doughnutIcon from '/icons/doughnut.svg'
-import russianIcon from '/icons/russian.svg'
-import hebrewIcon from '/icons/hebrew.svg'
-import englishIcon from '/icons/english.svg'
 import pauseBtn from '/icons/pausecircle.svg'
 import playBtn from '/icons/playcircle.svg'
+import emailIcon from '/icons/email.svg'
+import githubIcon from '/icons/githubIcon.svg'
+import linkedinIcon from '/icons/linkedinIcon.svg'
 //pdf CV
 import CV from '/PDF/cv.pdf'
 
@@ -93,7 +92,7 @@ export default function App() {
               scrollToRef(contactsRef)
             }}
           >
-            /contacts
+            /contact
           </button>
         </div>
         <div className={Styles['btns-wrapper']}>
@@ -113,7 +112,10 @@ export default function App() {
           </div>
         </div>
       </nav>
-      <section className={Styles['section-main']}>
+      <section
+        className={Styles['section-main']}
+        style={{ minHeight: '100vh' }}
+      >
         <main className={Styles['section-title']}>
           <h2>Hello,</h2>
           <h1>
@@ -121,8 +123,8 @@ export default function App() {
             Mantsurova
           </h1>
           <h3>{'<Full Stack Developer />'}</h3>
-          <a href={CV} download="MyCV" target="_blank">
-            <button className={Styles['download-cv-btn']}>
+          <button className={Styles['download-cv-btn']}>
+            <a href={CV} download="MyCV" target="_blank">
               <img
                 src={CVIcon}
                 alt="CV-download-icon"
@@ -133,8 +135,8 @@ export default function App() {
                 alt="CV-download-icon"
                 className={Styles['arrow-icon']}
               />
-            </button>
-          </a>
+            </a>
+          </button>
         </main>
       </section>
       <section
@@ -171,7 +173,7 @@ export default function App() {
       </section>
       <section
         ref={skillsRef}
-        style={{ minHeight: '100vh' }}
+        style={{ MinHeight: '60vh' }}
         className={Styles['section-skills']}
       >
         <div className={Styles['skills-title']}>
@@ -183,7 +185,7 @@ export default function App() {
             <img src={jsIcon} alt="Java Script" />
             Java Script
           </li>
-          <li className={Styles['aqua-icon']}>
+          <li>
             <img src={reactIcon} alt="React Icon" />
             React
           </li>
@@ -195,7 +197,7 @@ export default function App() {
             <img src={tsIcon} alt="TypeScript Icon" />
             Typescript
           </li>
-          <li className={Styles['green-icon']}>
+          <li>
             <img src={cssIcon} alt="Css Icon" />
             css
           </li>
@@ -203,7 +205,7 @@ export default function App() {
             <img src={gitIcon} alt="Git Icon" />
             git
           </li>
-          <li className={Styles['purple-icon']}>
+          <li>
             <img src={nextJsIcon} alt="Next Js Icon" />
             next.js
           </li>
@@ -211,7 +213,7 @@ export default function App() {
             <img src={graphQLIcon} alt="GraphQL Icon" />
             graphQL
           </li>
-          <li className={Styles['purple-icon']}>
+          <li>
             <img
               src={mongodbIcon}
               alt="Mongodb Icon"
@@ -225,58 +227,56 @@ export default function App() {
             html
           </li>
 
-          <li className={Styles['aqua-icon']}>
+          <li>
             <img src={mySqlIcon} alt="MySql Icon" />
             MySql
           </li>
         </ul>
-        <div className={Styles['language-title']}>
-          <h1>Languages</h1>
-          <h2>Languages</h2>
-        </div>
-        <div className={Styles['charts']}>
-          <div className={Styles['flex-wrapper']}>
-            <div className={Styles['chart-wrapper']}>
-              <img src={doughnutIcon} alt="doughnut" />
-              <img
-                src={russianIcon}
-                alt="russianLevel"
-                className={Styles['skill-level']}
-              />
-              <h1>100%</h1>
-            </div>
-            <h2>Russian</h2>
-          </div>
-          <div className={Styles['flex-wrapper']}>
-            <div className={Styles['chart-wrapper']}>
-              <img src={doughnutIcon} alt="doughnut" />
-              <img
-                src={englishIcon}
-                alt="englishLevel"
-                className={Styles['skill-level']}
-              />
-              <h1>90%</h1>
-            </div>
-            <h2>English</h2>
-          </div>
-          <div className={Styles['flex-wrapper']}>
-            <div className={Styles['chart-wrapper']}>
-              <img src={doughnutIcon} alt="doughnut" />
-              <img
-                src={hebrewIcon}
-                alt="hebrewLevel"
-                className={Styles['skill-level']}
-              />
-              <h1>90%</h1>
-            </div>
-            <h2>Hebrew</h2>
-          </div>
-        </div>
       </section>
       <section
         ref={contactsRef}
-        style={{ minHeight: '100vh', position: 'relative' }}
-      ></section>
+        style={{ minHeight: '100vh' }}
+        className={Styles['section-contact']}
+      >
+        <div className={Styles['title-contact']}>
+          <h1>Contact me</h1>
+          <h2>Contact me</h2>
+        </div>
+        <p>
+          if you have any questions or job offer you can contact me on my email
+          or send a message in a form below
+        </p>
+
+        <form
+          action="https://formsubmit.co/38c8da14c3393708e50870b60ea419fa"
+          method="POST"
+          className={Styles['form-contact']}
+        >
+          <div className={Styles['email-wrapper']}>
+            <img src={emailIcon} alt="emailicon" />
+            <h3>marimantsurova@gmail.com</h3>
+          </div>
+          <input name="name" placeholder="name" required />
+          <input type="email" name="email" placeholder="email" required />
+          <input name="subject" placeholder="subject" required />
+          <input name="message" placeholder="message" required />
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <footer className={Styles['footer']}>
+        <div className={Styles['links']}>
+          <a href="https://www.linkedin.com/in/maria-mantsurova-6b86b7245">
+            <img src={linkedinIcon} alt="" />
+          </a>
+          <a href="https://github.com/mariiamantsurova?tab=repositories">
+            <img src={githubIcon} alt="" />
+          </a>
+        </div>
+        <h3>
+          Copyright © 2023 Maria Mantsurova.
+          <br /> All rights reserved
+        </h3>
+      </footer>
     </div>
   )
 }
