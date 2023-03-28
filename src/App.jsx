@@ -41,6 +41,52 @@ export default function App() {
   const contactsRef = useRef(null)
   const [paused, setPaused] = useState(false)
   const [showDialog, setShowDialog] = useState(false)
+  const iconsArray = [
+    {
+      iconSrc: jsIcon,
+      iconName: 'Java Script',
+    },
+    {
+      iconSrc: reactIcon,
+      iconName: 'React',
+    },
+    {
+      iconSrc: reduxIcon,
+      iconName: 'Redux',
+    },
+    {
+      iconSrc: tsIcon,
+      iconName: 'Typescript',
+    },
+    {
+      iconSrc: cssIcon,
+      iconName: 'css',
+    },
+    {
+      iconSrc: gitIcon,
+      iconName: 'git',
+    },
+    {
+      iconSrc: nextJsIcon,
+      iconName: 'Next.js',
+    },
+    {
+      iconSrc: graphQLIcon,
+      iconName: 'GraphQL',
+    },
+    {
+      iconSrc: mongodbIcon,
+      iconName: 'mongodb',
+    },
+    {
+      iconSrc: htmlIcon,
+      iconName: 'html',
+    },
+    {
+      iconSrc: mySqlIcon,
+      iconName: 'MySQL',
+    },
+  ]
 
   const scrollToRef = (target) => {
     if (target.current !== null) {
@@ -208,56 +254,14 @@ export default function App() {
           <h2>Skills</h2>
         </div>
         <ul>
-          <li>
-            <img src={jsIcon} alt="Java Script" />
-            Java Script
-          </li>
-          <li>
-            <img src={reactIcon} alt="React Icon" />
-            React
-          </li>
-          <li>
-            <img src={reduxIcon} alt="Redux Icon" />
-            Redux
-          </li>
-          <li>
-            <img src={tsIcon} alt="TypeScript Icon" />
-            Typescript
-          </li>
-          <li>
-            <img src={cssIcon} alt="Css Icon" />
-            css
-          </li>
-          <li>
-            <img src={gitIcon} alt="Git Icon" />
-            git
-          </li>
-          <li>
-            <img src={nextJsIcon} alt="Next Js Icon" />
-            Next.js
-          </li>
-          <li>
-            <img src={graphQLIcon} alt="GraphQL Icon" />
-            GraphQL
-          </li>
-          <li>
-            <img
-              src={mongodbIcon}
-              alt="Mongodb Icon"
-              className={Styles['mongodb-icon']}
-            />
-            mongodb
-          </li>
-
-          <li>
-            <img src={htmlIcon} alt="Html Icon" />
-            html
-          </li>
-
-          <li>
-            <img src={mySqlIcon} alt="MySql Icon" />
-            MySql
-          </li>
+          {iconsArray.map(({ iconSrc, iconName }) => {
+            return (
+              <li>
+                <img src={iconSrc} alt={iconName} />
+                {iconName}
+              </li>
+            )
+          })}
         </ul>
       </section>
       <section
