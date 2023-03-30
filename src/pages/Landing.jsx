@@ -296,11 +296,7 @@ function Home() {
           <input type="email" name="email" placeholder="email" required />
           <input name="subject" placeholder="subject" required />
           <input name="message" placeholder="message" required />
-          <input
-            type="hidden"
-            name="_next"
-            value="https://main--candid-salamander-d0e811.netlify.app/thankyou"
-          />
+          <input type="hidden" name="_next" value="https://maridev.xyz" />
           <button type="submit">Submit</button>
         </form>
       </section>
