@@ -296,7 +296,11 @@ function Home() {
           <input type="email" name="email" placeholder="email" required />
           <input name="subject" placeholder="subject" required />
           <input name="message" placeholder="message" required />
-          <input type="hidden" name="_next" value="https://maridev.xyz" />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://maridev.xyz/thankyou"
+          />
           <button type="submit">Submit</button>
         </form>
       </section>
