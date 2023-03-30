@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['/fontfaceobserver', /node_modules/],
+      external: [
+        /node_modules/],
     },
   },
 })
