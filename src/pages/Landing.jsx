@@ -188,7 +188,7 @@ function Home() {
           camera={{ zoom: 1, position: [0, 150, 500] }}
           className={Styles['canvas']}
         >
-          <Suspense fallback={<Spinner />}>
+          <Suspense fallback={null}>
             <ambientLight position={(0, 10, 0)} />
             <spotLight
               intensity={0.9}
@@ -198,7 +198,7 @@ function Home() {
               castShadow
             />
             <Cat rotation={[-25, 160, 0]} paused={paused} />
-            <OrbitControls enableZoom={false} />
+            <OrbitControls enableZoom={false} enablePan={false} />
           </Suspense>
         </Canvas>
         <button className={Styles['download-cv-btn']}>
