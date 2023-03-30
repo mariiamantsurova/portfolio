@@ -16,30 +16,32 @@ function DialogMenu({
   })
   return (
     <div className={Styles['dialog-menu']}>
-      <button
-        onClick={() => {
-          scrollToRef(aboutRef)
-          closeMenu()
-        }}
-      >
-        /about me
-      </button>
-      <button
-        onClick={() => {
-          scrollToRef(skillsRef)
-          closeMenu()
-        }}
-      >
-        /skills
-      </button>
-      <button
-        onClick={() => {
-          scrollToRef(contactsRef)
-          closeMenu()
-        }}
-      >
-        /contact
-      </button>
+      <div className={Styles['btn-wrapper']}>
+        <button
+          onClick={() => {
+            scrollToRef(aboutRef)
+            closeMenu()
+          }}
+        >
+          /about me
+        </button>
+        <button
+          onClick={() => {
+            scrollToRef(skillsRef)
+            closeMenu()
+          }}
+        >
+          /skills
+        </button>
+        <button
+          onClick={() => {
+            scrollToRef(contactsRef)
+            closeMenu()
+          }}
+        >
+          /contact
+        </button>
+      </div>
     </div>
   )
 }

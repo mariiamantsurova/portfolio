@@ -188,7 +188,7 @@ function Home() {
           camera={{ zoom: 1, position: [0, 150, 500] }}
           className={Styles['canvas']}
         >
-          <Suspense fallback={null}>
+          <Suspense fallback={<Spinner />}>
             <ambientLight position={(0, 10, 0)} />
             <spotLight
               intensity={0.9}
@@ -299,7 +299,7 @@ function Home() {
           <input
             type="hidden"
             name="_next"
-            value="http://localhost:5173/thankyou"
+            value="https://main--candid-salamander-d0e811.netlify.app/thankyou"
           />
           <button type="submit">Submit</button>
         </form>
