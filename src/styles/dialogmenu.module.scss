@@ -29,6 +29,7 @@
     );
     border: 2px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(71.5px);
+    -webkit-backdrop-filter: blur(71.5px);
 
     border-radius: 43px;
     button {
