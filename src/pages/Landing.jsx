@@ -224,11 +224,11 @@ function Home() {
         <Marguee styles="purple" />
         <Marguee styles="grey" />
         <div className={Styles['container-aboutme']}>
-          <div className={Styles['about-title']}>
-            <h2>About Me</h2>
-            <h3>
+          <div className={Styles['title']}>
+            <h1>About Me</h1>
+            <h2>
               About <br /> Me
-            </h3>
+            </h2>
           </div>
 
           <div className={Styles['wrap-text-container']}>
@@ -253,7 +253,7 @@ function Home() {
         style={{ MinHeight: '60vh' }}
         className={Styles['section-skills']}
       >
-        <div className={Styles['skills-title']}>
+        <div className={Styles['title']}>
           <h1>Skills</h1>
           <h2>Skills</h2>
         </div>
@@ -273,7 +273,7 @@ function Home() {
         style={{ minHeight: '100vh' }}
         className={Styles['section-contact']}
       >
-        <div className={Styles['title-contact']}>
+        <div className={Styles['title']}>
           <h1>Contact me</h1>
           <h2>Contact me</h2>
         </div>

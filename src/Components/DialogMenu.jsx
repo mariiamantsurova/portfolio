@@ -8,14 +8,15 @@ function DialogMenu({
   closeMenu,
 }) {
   useEffect(() => {
+    window.addEventListener('resize', () => {
+      closeMenu()
+    })
     document.body.style.overflow = 'hidden'
     return () => (document.body.style.overflow = 'unset')
   }, [])
-  window.addEventListener('resize', () => {
-    closeMenu()
-  })
+
   return (
-    <div className={Styles['dialog-menu']}>
+    <div className={Styles['dialog-menu']} onClick={() => closeMenu()}>
       <div className={Styles['btn-wrapper']}>
         <button
           onClick={() => {
