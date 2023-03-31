@@ -236,7 +236,7 @@ function Home() {
               <p>
                 <ol>
                   <li>
-                    I am a follstack developer with 2+ years of experience in
+                    I am a fullstack developer with 2+ years of experience in
                     developing website applications, designing and developing
                     web-based solutions, and integrating web technologies.
                   </li>
