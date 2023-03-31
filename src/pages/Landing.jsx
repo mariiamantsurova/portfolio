@@ -23,7 +23,7 @@ import githubIcon from '/icons/githubIcon.svg'
 import linkedinIcon from '/icons/linkedinIcon.svg'
 import burgerIcon from '/icons/burger.svg'
 //pdf CV
-import CV from '/PDF/cv.pdf'
+import CV from '/Resume/MyCV.pdf'
 
 //three fiber
 import { Canvas } from '@react-three/fiber'
@@ -234,15 +234,23 @@ function Home() {
           <div className={Styles['wrap-text-container']}>
             <div className={Styles['container-overflow']}>
               <p>
-                I am a fullstack developer with 5+ years of experience in
-                developing website applications, designing and developing
-                web-based solutions, and integrating web technologies. I am
-                skilled in JavaScript, Node.js, HTML, CSS, and React.js. I have
-                a solid understanding of database systems and have experience
-                with MySQL, MongoDB, and PostgreSQL. My experience also includes
-                creating and developing Restful APIs, working with cloud
-                services such as AWS, and developing and deploying web
-                applications.
+                <ol>
+                  <li>
+                    I am a follstack developer with 2+ years of experience in
+                    developing website applications, designing and developing
+                    web-based solutions, and integrating web technologies.
+                  </li>
+                  <li>
+                    I am skilled in JavaScript, Next.js, HTML, CSS, and
+                    React.js. I have a solid understanding of database systems
+                    and have experience with MySQL.
+                  </li>
+                  <li>
+                    My experience also includes creating and developing Restful
+                    APIs, working with cloud services such as Azure, and
+                    developing and deploying web applications.
+                  </li>
+                </ol>
               </p>
             </div>
           </div>

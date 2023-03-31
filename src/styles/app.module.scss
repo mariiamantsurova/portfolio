@@ -249,18 +249,20 @@ body {
         overflow-x: hidden;
 
         p {
-          padding: 1rem;
-          background: linear-gradient(
-            180.16deg,
-            #000000 80.84%,
-            rgba(0, 0, 0, 0) 94.83%
-          );
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: transparent;
-          line-height: 214.8%;
-          letter-spacing: 0.025em;
-          font-family: 'Red Hat Mono', monospace;
+          ol {
+            padding: 1rem;
+            background: linear-gradient(
+              180.16deg,
+              #000000 80.84%,
+              rgba(0, 0, 0, 0) 94.83%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            line-height: 214.8%;
+            letter-spacing: 0.025em;
+            font-family: 'Red Hat Mono', monospace;
+          }
         }
       }
     }
